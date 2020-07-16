@@ -60,27 +60,24 @@ class AudioFolderPlaylistConfig extends PlaylistSoundConfig {
       return arr;
     }, []);
     
-    
     var data = {action: "browseFiles", storage: "data", target: formData.path};
     var options = {extensions: types_array};
+    var result = await FilePicker._manageFiles(data, options);
     
     // Get the file list, parse it and create items.
-    game.socket.emit("manageFiles", data, options, result => {
-
-      for (let file of result.files) {
-        let track_data = {
-          lvolume: formData.lvolume,
-          volume: formData.volume,
-          path: file,
-          name: decodeURI(file.replace(/^.*[\\\/]/, ''))
-        }
-        if (typeof formData.repeat !== "undefined") {
-          track_data.repeat = formData.repeat;
-        }
-        // modules/audio-folder/test
-
-        this.playlist.createEmbeddedEntity("PlaylistSound", track_data, {});
+    for (let file of result.files) {
+      let track_data = {
+        lvolume: formData.lvolume,
+        volume: formData.volume,
+        path: file,
+        name: decodeURI(file.replace(/^.*[\\\/]/, ''))
       }
-    });
+      if (typeof formData.repeat !== "undefined") {
+        track_data.repeat = formData.repeat;
+      }
+      // modules/audio-folder/test
+
+      await this.playlist.createEmbeddedEntity("PlaylistSound", track_data, {});
+    }
   }
 }
