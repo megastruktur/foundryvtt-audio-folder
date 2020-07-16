@@ -2,14 +2,14 @@
   "name": "audio-folder",
   "title": "Audio Folder",
   "description": "Module allows you to add audio specifying the whole directory",
-  "version": "1.0",
+  "version": "1.1",
   "author": "megastruktur",
   "scripts": [
     "./audio-folder.js"
   ],
   "url": "https://github.com/megastruktur/foundryvtt-audio-folder",
-  "manifest": "https://raw.githubusercontent.com/megastruktur/foundryvtt-audio-folder/1.0/module.json",
-  "download": "https://github.com/megastruktur/foundryvtt-audio-folder/archive/1.0.zip",
+  "manifest": "https://raw.githubusercontent.com/megastruktur/foundryvtt-audio-folder/1.1/module.json",
+  "download": "https://github.com/megastruktur/foundryvtt-audio-folder/archive/1.1.zip",
   "minimumCoreVersion": "0.5.5",
-  "compatibleCoreVersion": "0.6.4"
+  "compatibleCoreVersion": "0.6.5"
 }
